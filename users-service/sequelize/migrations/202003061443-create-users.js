@@ -3,7 +3,7 @@ module.exports.up = (queryInterface, DataTypes) => {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: DataTypes.INTEGER.UUID
+      type: DataTypes.UUID
     },
     email: {
       allowNull: false,
