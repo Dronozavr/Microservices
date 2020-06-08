@@ -1,4 +1,4 @@
 .idea
-**/node_modules
-./classifieds-app/.cache
-./classifieds-app/dist
+**/node_modules/
+/classifieds-app/.cache/
+/classifieds-app/dist/
