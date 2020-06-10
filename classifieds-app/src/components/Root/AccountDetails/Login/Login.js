@@ -3,8 +3,10 @@ import gql from "graphql-tag";
 import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
 import TextInput from "#root/components/shared/TextInput";
+import { setSession } from "#root/store/ducks/session";
 
 const Label = styled.label`
   display: block;
@@ -37,7 +39,8 @@ const mutation = gql`
   }
 `;
 
-const Login = () => {
+const Login = ({ toSignup }) => {
+  const dispatch = useDispatch();
   const [createUserSession] = useMutation(mutation);
   const {
     formState: { isSubmitting },
@@ -46,8 +49,12 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = handleSubmit(async ({ email, password }) => {
-    const result = await createUserSession({ variables: { email, password } });
-    console.log(result);
+    const {
+      data: {
+        createUserSession: createSession
+      }
+    } = await createUserSession({ variables: { email, password } });
+    dispatch(setSession(createSession));
   });
 
 
@@ -61,6 +68,7 @@ const Login = () => {
       <TextInput  disabled={isSubmitting} name="password" type="password" ref={register} />
     </Label>
     <LoginButton disabled={isSubmitting} type="submit" >Login</LoginButton>
+    <LoginButton onClick={toSignup}>Or Sig Up</LoginButton>
   </form>;
 };
 
