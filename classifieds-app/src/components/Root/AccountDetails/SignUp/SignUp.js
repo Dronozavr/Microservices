@@ -6,20 +6,8 @@ import styled from "styled-components";
 import * as yup from "yup";
 
 import TextInput from "#root/components/shared/TextInput";
-
-const Label = styled.label`
-  display: block;
-  
-  :not(:first-child) {
-    margin-top: .75rem;
-  }
-`;
-
-const LabelText = styled.strong`
-  display: block;
-  font-size: .9rem;
-  margin-bottom: .25rem;
-`;
+import Label from "#root/components/shared/Label";
+import LabelText from "#root/components/shared/LabelText";
 
 const LoginButton = styled.button`
   display: inline-block;

@@ -6,21 +6,9 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
 import TextInput from "#root/components/shared/TextInput";
+import LabelText from "#root/components/shared/LabelText";
+import Label from "#root/components/shared/Label";
 import { setSession } from "#root/store/ducks/session";
-
-const Label = styled.label`
-  display: block;
-  
-  :not(:first-child) {
-    margin-top: .75rem;
-  }
-`;
-
-const LabelText = styled.strong`
-  display: block;
-  font-size: .9rem;
-  margin-bottom: .25rem;
-`;
 
 const LoginButton = styled.button`
   display: inline-block;

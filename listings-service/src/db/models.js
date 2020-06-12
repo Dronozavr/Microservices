@@ -1,4 +1,4 @@
-import { DataTypes, Model } from "sequelize";
+import {DataTypes, Model} from "sequelize";
 
 import sequelize from "./connection";
 
@@ -12,6 +12,11 @@ Listing.init({
     description: {
       allowNull: false,
       type: DataTypes.TEXT
+    },
+    deletedAt: {
+      allowNull: true,
+      type: DataTypes.DATE,
+      defaultValue: new Date(),
     }
   }, {
     modelName: "listings",

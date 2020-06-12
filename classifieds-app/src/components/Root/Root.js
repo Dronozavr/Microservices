@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import graphqlClient from "#root/api/graphqlClient";
 
 import AccountDetails from "./AccountDetails";
+import Listings from "./Listings";
+
 import { setSession } from "#root/store/ducks/session";
 
 const Container = styled.div`
@@ -61,7 +63,9 @@ const Root = () => {
   return (
     <Wrapper>
       <Container>
-        <Content>Content</Content>
+        <Content>
+          <Listings />
+        </Content>
         <Sidebar>
           <AccountDetails />
         </Sidebar>
